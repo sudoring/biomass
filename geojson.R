@@ -64,3 +64,4 @@ geojson_list <- list(
 path <- '/projectnb/modislc/users/mkmoon/biomass/geojson/'
 write_json(geojson_list, paste0(path,siteName,'.geojson'), auto_unbox = TRUE)
 
+# comments
