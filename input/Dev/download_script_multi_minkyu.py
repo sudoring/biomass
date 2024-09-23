@@ -37,8 +37,8 @@ def setup_filter(coords, minyear, maxyear):
         "type": "DateRangeFilter", # Type of filter -> Date Range
         "field_name": "acquired", # The field to filter on: "acquired" -> Date on which the "image was taken"
         "config": {
-            "gte": "{}-01-01T00:00:00.000Z".format(minyear), # "gte" -> Greater than or equal to
-            "lt":"{}-12-31T00:00:00Z".format(maxyear)
+            "gte": "{}-07-01T00:00:00.000Z".format(minyear), # "gte" -> Greater than or equal to
+            "lt":"{}-07-01T00:00:00Z".format(maxyear)
             }
         }
     
@@ -187,14 +187,14 @@ def main(argv):
     #output_dir=argv[3]
     #check_existing_orders=argv[4]
     
-    geometry_path = "/projectnb/modislc/users/mkmoon/biomass/plsp/geojson"
-    min_year = 2018
-    max_year = 2019
-    output_dir = "/projectnb/modislc/users/mkmoon/biomass/plsp/raw"
-    check_existing_orders="False"
-    
-    #site_num = pandas.to_numeric(argv[0])
+    site_num = pandas.to_numeric(argv[0])
     site_num = 0
+    
+    geometry_path = "/projectnb/modislc/users/mkmoon/sukyungkim/plsp/geojson"
+    min_year = 2017
+    max_year = 2024
+    output_dir = "/projectnb/modislc/users/mkmoon/sukyungkim/plsp/raw"
+    check_existing_orders="False"
     
     print("Input Params:")
     print("geometry_path={}".format(geometry_path))
@@ -209,8 +209,7 @@ def main(argv):
         sys.exit("{} does not exist.".format(output_dir))
     
     #PLANET_API_KEY = os.getenv('PL_API_KEY')
-    PLANET_API_KEY = "PLAKa19cc5036e4b4f958ed287dbc7c70392"
-
+   
     
     # Setup the session
     session = requests.Session()
@@ -262,8 +261,7 @@ def main(argv):
             geo = read_geometry(file_path)
             
             for x in geo['features']:
-                #feature_name = x['properties']['f']
-                feature_name = x['properties'][1]
+                feature_name = x['properties']['f']
                 feature_coords = x['geometry']['coordinates']
                 
                 filter = setup_filter(feature_coords, min_year, max_year)
