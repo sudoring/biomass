@@ -3,12 +3,15 @@ library(sp)
 library(terra)  # For projection transformations
 library(jsonlite)  # For writing GeoJSON
 
+# Check my directory
+getwd()
+
 # Site name
-siteName <- 'gariwang'
+siteName <- 'jeombong'
 
 # Define the center point (lat, lon)
-lat_center <- 37.460749
-lon_center <- 128.516865
+lat_center <- 38.037992
+lon_center <- 128.468300
 
 # Create a matrix for the center point in WGS84 (EPSG:4326)
 center_coords <- cbind(lon_center, lat_center)
