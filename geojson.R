@@ -5,7 +5,7 @@ library(jsonlite)  # For writing GeoJSON
 
 # Check my directory
 getwd()
-
+zz
 # Site name
 siteName <- 'jeombong'
 
