@@ -66,7 +66,7 @@ geojson_list <- list(
 # Write the GeoJSON to a file using jsonlite
 getwd()
 path <- '/projectnb/modislc/users/mkmoon/sukyungkim/jeombong'
-geojsonpath <- paste(path,"geojson", sep="/")
+geojsonpath <- paste(path,"geojson/", sep="/")
 if (!dir.exists(geojsonpath)) {dir.create(geojsonpath)}  
 write_json(geojson_list, paste0(geojsonpath,siteName,'.geojson'), auto_unbox = TRUE)
 
